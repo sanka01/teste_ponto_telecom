@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  produto: one
+  pedido: one
+  valor: 1.5
+
+two:
+  produto: two
+  pedido: two
+  valor: 1.5
