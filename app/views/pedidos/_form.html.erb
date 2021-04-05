@@ -1,7 +1,7 @@
 <%= form_with(model: pedido, local: true) do |form| %>
   <% if pedido.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(pedido.errors.count, "error") %> prohibited this pedido from being saved:</h2>
+      <h2><%= pluralize(pedido.errors.count, "error") %> impedindo esse pedido de ser salvo:</h2>
 
       <ul>
       <% pedido.errors.full_messages.each do |message| %>
@@ -13,12 +13,36 @@
 
   <div class="field">
     <%= form.label :cliente_id %>
-    <%= form.text_field :cliente_id %>
+    <%= form.select :cliente_id, @clientes.collect {|cliente| [cliente.nome, cliente.id]} %>
   </div>
+
+  
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Valor valor</th>
+      <th colspan="3">Quantidade</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @produtos.each do |produto| %>
+      <tr>
+        <td><%= produto.nome %></td>
+        <td class="valor"><%= produto.valor %></td>
+        <td class="produto_info">
+          <%= hidden_field_tag :nome, produto.nome, id: "nome_" + produto.id.to_s %>
+          <%= number_field_tag :quantidade, 0, min: 0, id: "quantidade_" + produto.id.to_s, class: "quantidade", onchange: "calcula_valor_total()" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
   <div class="field">
     <%= form.label :valor_total %>
-    <%= form.text_field :valor_total %>
+    <%= form.text_field :valor_total, disabled: true %>
   </div>
 
   <div class="actions">

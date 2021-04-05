@@ -12,6 +12,9 @@ class PedidosController < ApplicationController
 
   # GET /pedidos/new
   def new
+    
+    @clientes = Cliente.where(ativo: true)
+    @produtos = Produto.where(ativo: true)
     @pedido = Pedido.new
   end
 

@@ -22,7 +22,6 @@ class ProdutosController < ApplicationController
   # POST /produtos or /produtos.json
   def create
     @produto = Produto.new(produto_params)
-
     respond_to do |format|
       if @produto.save
         format.html { redirect_to @produto, notice: "Produto was successfully created." }
@@ -64,6 +63,6 @@ class ProdutosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def produto_params
-      params.require(:produto).permit(:nome, :valor)
+      params.require(:produto).permit(:nome, :valor, :ativo)
     end
 end

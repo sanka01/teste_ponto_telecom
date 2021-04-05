@@ -25,6 +25,7 @@
     <%= form.label :data_nascimento %>
     <%= form.date_select :data_nascimento %>
   </div>
+  <%= form.hidden_field :ativo, value: "true" %>
 
   <div class="actions">
     <%= form.submit %>

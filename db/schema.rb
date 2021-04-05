@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_05_165820) do
+ActiveRecord::Schema.define(version: 2021_04_05_183843) do
 
   create_table "clientes", force: :cascade do |t|
     t.string "nome"
@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2021_04_05_165820) do
     t.date "data_nascimento"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "ativo"
   end
 
   create_table "pedidos", force: :cascade do |t|
@@ -33,6 +34,7 @@ ActiveRecord::Schema.define(version: 2021_04_05_165820) do
     t.float "valor"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "ativo"
   end
 
   create_table "produtos_pedidos", force: :cascade do |t|
@@ -41,6 +43,7 @@ ActiveRecord::Schema.define(version: 2021_04_05_165820) do
     t.float "valor"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "quantidade"
     t.index ["pedido_id"], name: "index_produtos_pedidos_on_pedido_id"
     t.index ["produto_id"], name: "index_produtos_pedidos_on_produto_id"
   end
