@@ -1,6 +1,6 @@
 class PedidosController < ApplicationController
   before_action :set_pedido, only: %i[ show edit update destroy ]
-
+  before_action :set_params, only: %i[create new edit]
   # GET /pedidos or /pedidos.json
   def index
     @pedidos = Pedido.all
@@ -8,13 +8,14 @@ class PedidosController < ApplicationController
 
   # GET /pedidos/1 or /pedidos/1.json
   def show
+    @produtos = ProdutosPedido.where(pedido: @pedido)
+    
   end
 
   # GET /pedidos/new
   def new
     
-    @clientes = Cliente.where(ativo: true)
-    @produtos = Produto.where(ativo: true)
+   
     @pedido = Pedido.new
   end
 
@@ -25,9 +26,28 @@ class PedidosController < ApplicationController
   # POST /pedidos or /pedidos.json
   def create
     @pedido = Pedido.new(pedido_params)
+    i = 0
+    flag_save = false
+    flag_save = @pedido.save
+    valor_total = 0
+    while i < @produtos.length do
+      qtd = params["produtos"]["quantidade"+ i.to_s].to_i
+      if qtd > 0
+        p = Produto.find params["produtos"]["id"+i.to_s].to_i
+        produto = ProdutosPedido.new()
+        produto.quantidade = qtd
+        produto.produto = p
+        produto.pedido = @pedido
+        produto.save
+        valor_total += p.valor * qtd
+      end
+      i = i + 1
 
+    end
+    
+    @pedido.update(valor_total: valor_total)
     respond_to do |format|
-      if @pedido.save
+      if flag_save
         format.html { redirect_to @pedido, notice: "Pedido was successfully created." }
         format.json { render :show, status: :created, location: @pedido }
       else
@@ -63,6 +83,11 @@ class PedidosController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_pedido
       @pedido = Pedido.find(params[:id])
+    end
+
+    def set_params
+      @clientes = Cliente.where(ativo: true)
+      @produtos = Produto.where(ativo: true)
     end
 
     # Only allow a list of trusted parameters through.

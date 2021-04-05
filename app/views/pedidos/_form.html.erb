@@ -27,22 +27,24 @@
   </thead>
 
   <tbody>
+    <% x = 0 %>
     <% @produtos.each do |produto| %>
       <tr>
         <td><%= produto.nome %></td>
         <td class="valor"><%= produto.valor %></td>
         <td class="produto_info">
-          <%= hidden_field_tag :nome, produto.nome, id: "nome_" + produto.id.to_s %>
-          <%= number_field_tag :quantidade, 0, min: 0, id: "quantidade_" + produto.id.to_s, class: "quantidade", onchange: "calcula_valor_total()" %>
+          <%= hidden_field_tag :nome, produto.id, id: "id_" + produto.id.to_s, name: "produtos[id"+x.to_s+"]"%>
+          <%= number_field_tag :quantidade, 0, min: 0, id: "quantidade_" + produto.id.to_s, class: "quantidade", onchange: "calcula_valor_total()", name: "produtos[quantidade"+x.to_s+"]" %>
         </td>
       </tr>
+      <% x += 1 %>
     <% end %>
   </tbody>
 </table>
 
   <div class="field">
     <%= form.label :valor_total %>
-    <%= form.text_field :valor_total, disabled: true %>
+    <%= form.text_field :valor_total, value: 0, disabled: true %>
   </div>
 
   <div class="actions">

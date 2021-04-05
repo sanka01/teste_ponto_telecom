@@ -21,7 +21,6 @@ function calcula_valor_total(){
     let quantidades = document.getElementsByClassName("quantidade")
     let valor_total_campo = document.getElementById("pedido_valor_total")
     for(var i = 0; i < valores.length; i++){
-        
         valor_total += valores[i].outerText * quantidades[i].value
     }
     valor_total_campo.value = valor_total

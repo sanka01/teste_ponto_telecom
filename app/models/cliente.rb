@@ -3,4 +3,7 @@ class Cliente < ApplicationRecord
     validates :telefone, presence: true, uniqueness: true
     validates :data_nascimento, presence: true
 
+    def to_s
+        self.nome
+    end
 end

@@ -5,6 +5,26 @@
   <%= @pedido.cliente %>
 </p>
 
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Quantidade</th>
+      <th>Valor</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @produtos.each do |produto| %>
+      <tr>
+        <td><%= produto.produto.nome %></td>
+        <td><%=produto.quantidade %></td>
+        <td><%= produto.produto.valor %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
 <p>
   <strong>Valor total:</strong>
   <%= @pedido.valor_total %>
