@@ -1,34 +1,35 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Cliente:</strong>
-  <%= @pedido.cliente %>
-</p>
+  <h1>Cliente: <%= @pedido.cliente %></h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Nome</th>
-      <th>Quantidade</th>
-      <th>Valor</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @produtos.each do |produto| %>
+<div class="tabble-wrapper">
+  <table class="fl-table">
+    <thead>
       <tr>
-        <td><%= produto.produto.nome %></td>
-        <td><%=produto.quantidade %></td>
-        <td><%= produto.produto.valor %></td>
+        <th>Nome</th>
+        <th>Quantidade</th>
+        <th>Valor</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-
+    </thead>
+    <tbody>
+      <% @produtos.each do |produto| %>
+        <tr>
+          <td><%= produto.produto.nome %></td>
+          <td><%=produto.quantidade %></td>
+          <td><%= produto.produto.valor %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<p>
+    <strong>Data do pedido</strong>
+    <%= @pedido.created_at.to_date %>
+</p>
 <p>
   <strong>Valor total:</strong>
   <%= @pedido.valor_total %>
 </p>
 
-<%= link_to 'Edit', edit_pedido_path(@pedido) %> |
-<%= link_to 'Back', pedidos_path %>
+<%= link_to 'Editar', edit_pedido_path(@pedido), class: "skewBtn"%> |
+<%= link_to 'Voltar', pedidos_path, class: "skewBtn"%>

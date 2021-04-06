@@ -1,7 +1,7 @@
 <%= form_with(model: cliente, local: true) do |form| %>
   <% if cliente.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(cliente.errors.count, "error") %> prohibited this cliente from being saved:</h2>
+      <h2><%= pluralize(cliente.errors.count, "error") %>impedindo esse cliente de ser salvo:</h2>
 
       <ul>
       <% cliente.errors.full_messages.each do |message| %>
@@ -12,19 +12,26 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :nome %>
-    <%= form.text_field :nome %>
+    <label>
+      <%= form.text_field :nome, placeholder: "Nome" %>
+    </label>
   </div>
 
   <div class="field">
-    <%= form.label :telefone %>
-    <%= form.text_field :telefone %>
+    <label>
+    <%= form.text_field :telefone, placeholder: "Telefone" %>
+    </label>
   </div>
+
+
+
+
 
   <div class="field">
     <%= form.label :data_nascimento %>
     <%= form.date_select :data_nascimento %>
   </div>
+ 
   <%= form.hidden_field :ativo, value: "true" %>
 
   <div class="actions">

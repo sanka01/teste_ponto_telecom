@@ -1,6 +1,9 @@
-<h1>Editing Pedido</h1>
-
+<div class="segment">
+    <h1>Editando Pedido</h1>
+</div>
 <%= render 'form', pedido: @pedido %>
 
-<%= link_to 'Show', @pedido %> |
-<%= link_to 'Back', pedidos_path %>
+<div class="segment">
+    <%= link_to 'Exibir', @pedido , class: "skewBtn"%> |
+    <%= link_to 'Voltar', pedidos_path, class: "skewBtn"%>
+</div>

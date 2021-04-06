@@ -1,6 +1,9 @@
 ---
 pt-BR:
   activerecord:
+    show: "Exibir"
+    edit: "Editar"
+    destroy: "Deletar"
     errors:
       messages:
         record_invalid: 'A validação falhou: %{errors}'

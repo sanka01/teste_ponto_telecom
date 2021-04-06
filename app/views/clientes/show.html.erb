@@ -1,19 +1,22 @@
-<p id="notice"><%= notice %></p>
+<div class="segment">
 
-<p>
-  <strong>Nome:</strong>
-  <%= @cliente.nome %>
-</p>
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Telefone:</strong>
-  <%= @cliente.telefone %>
-</p>
+  <p>
+    <strong>Nome:</strong>
+    <%= @cliente.nome %>
+  </p>
 
-<p>
-  <strong>Data nascimento:</strong>
-  <%= @cliente.data_nascimento %>
-</p>
+  <p>
+    <strong>Telefone:</strong>
+    <%= @cliente.telefone %>
+  </p>
 
-<%= link_to 'Edit', edit_cliente_path(@cliente) %> |
-<%= link_to 'Back', clientes_path %>
+  <p>
+    <strong>Data nascimento:</strong>
+    <%= @cliente.data_nascimento %>
+  </p>
+
+  <%= link_to 'Editar', edit_cliente_path(@cliente), class: "skewBtn"%> |
+  <%= link_to 'Voltar', clientes_path, class: "skewBtn"%>
+</div>

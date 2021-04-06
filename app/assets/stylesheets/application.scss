@@ -1,0 +1,285 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+
+ */
+
+$color-bg: rgb(199, 240, 232);
+$table-alpha:  rgb(129, 204, 248);
+$table-head: #54708b;
+$color-shadow:  #9e8aaf;
+$color-white: #d4c7dd;
+$ruler: 12px;
+$rosinha: #e3d0e6;
+
+ body{
+    background-color: $color-bg;
+    margin: 0;
+    font-size: $ruler;
+}
+.content{
+    margin: 25px;
+}
+
+
+/* input style */
+
+
+
+  form {
+    padding: $ruler;
+    width: $ruler*20;
+    margin: 0 auto;
+  }
+  .segment {
+    padding: $ruler*2 0;
+    text-align: center;
+  }
+  button, input {
+    border: 0;
+    outline: 0;
+    font-size: $ruler;
+    border-radius: $ruler*20;
+    padding: $ruler;
+    background-color:darken($color-bg,2.5%);
+    text-shadow: 1px 1px 0 $color-white;
+  }
+
+  label {
+    display: block;
+    margin-bottom: $ruler*1.5;
+    width: 100%;
+  }
+  
+input {
+    margin-right: $ruler/2;
+    box-shadow:  inset 2px 2px 5px $color-shadow, inset -5px -5px 10px $color-white;
+    width: 100%;
+    box-sizing: border-box;
+    transition: all 0.2s ease-in-out;
+    appearance: none;
+    -webkit-appearance: none;
+  
+    &:focus {
+      box-shadow:  inset 1px 1px 2px $color-shadow, inset -1px -1px 2px $color-white;
+    }
+  }
+
+  input[type="submit"] {
+    color:#170a86;
+    font-weight: bold;
+    background-color:#dff0f7;
+    box-shadow: -5px -5px 20px $color-white,  5px 5px 20px $color-shadow;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+    font-weight: 600;
+    
+    &:hover {
+      box-shadow: -2px -2px 5px $color-white, 2px 2px 5px $color-shadow;
+    }
+    
+    &:active {
+      box-shadow: inset 1px 1px 2px $color-shadow, inset -1px -1px 2px $color-white;
+    }
+
+
+  }
+
+
+
+/* link styles */
+
+.skewBtn{
+    text-decoration: none;
+    outline: none;
+    cursor: pointer;
+    color: rgb(6, 9, 26);
+    background: none;
+    transition: .5s;
+    font-size: 14px;
+    border-radius: 5px;
+    font-family: "Lato",sans-serif;
+
+    &:hover{
+        background-color: rgb(160, 177, 255);
+        border: none;
+        padding: 5px;
+        color: rgb(25, 7, 92);
+        font-size: 18px;
+        transform:scale(1.1);
+        
+
+    }
+
+  }
+
+
+
+  /* nav styles*/
+
+nav {
+    margin: 0;
+    background: darken($color-bg, 5%);
+    padding: 1px;
+    .menuItems {
+      list-style: none;
+      display: flex;
+  
+      li {
+        margin: 25px;
+  
+        a {
+          text-decoration: none;
+          color: #2f3a3d;
+          font-size: 24px;
+          font-weight: 400;
+          transition: all 0.5s ease-in-out;
+          position: relative;
+          text-transform: uppercase;
+  
+          &::before {
+            content: attr(data-item);
+            transition: 0.5s;
+            color: #8254ff;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            width: 0;
+            overflow: hidden;
+          }
+  
+          &:hover {
+                background-color: transparent;
+                color: rgb(1, 27, 143);
+                &::before {
+                    width: 100%;
+                    transition: all 0.5s ease-in-out;
+                }
+          }
+        }
+      }
+    }
+  }
+
+
+
+
+
+
+/* Table Styles */
+
+.table-wrapper{
+    margin: 10px 70px 70px;
+    box-shadow: 0px 35px 50px rgba(248, 165, 57, 0.2);
+}
+
+.fl-table {
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: normal;
+    border: none;
+    border-collapse: collapse;
+    width: 40%;
+    max-width: 100%;
+    white-space: nowrap;
+    background-color: $table-alpha;
+    td, th {
+        text-align: center;
+        padding: 8px;
+    }
+    td {
+        border-right: 1px solid #f8f8f8;
+        font-size: 12px;
+    }
+    thead, th {
+        color: #ffffff;
+        background: $table-head;
+    }
+    thead th:nth-child(odd) {
+        color: #ffffff;
+        background: darken($table-head, 15%)
+    }
+    tr:nth-child(even) {
+        background: darken($table-alpha, 10%);
+    }
+    
+}
+
+/* Responsive table*/
+
+@media (max-width: 767px) {
+    .fl-table {
+        display: block;
+        width: 100%;
+    }
+    .table-wrapper:before{
+        content: "Scroll horizontally >";
+        display: block;
+        text-align: right;
+        font-size: 11px;
+        color: white;
+        padding: 0 0 10px;
+    }
+    .fl-table thead, .fl-table tbody, .fl-table thead th {
+        display: block;
+    }
+    .fl-table thead th:last-child{
+        border-bottom: none;
+    }
+    .fl-table thead {
+        float: left;
+    }
+    .fl-table tbody {
+        width: auto;
+        position: relative;
+        overflow-x: auto;
+    }
+    .fl-table td, .fl-table th {
+        padding: 20px .625em .625em .625em;
+        height: 60px;
+        vertical-align: middle;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        overflow-y: auto;
+        width: 120px;
+        font-size: 13px;
+        text-overflow: ellipsis;
+    }
+    .fl-table thead th {
+        text-align: left;
+        border-bottom: 1px solid #f7f7f9;
+    }
+    .fl-table tbody tr {
+        display: table-cell;
+    }
+    .fl-table tbody tr:nth-child(odd) {
+        background: none;
+    }
+    .fl-table tr:nth-child(even) {
+        background: transparent;
+    }
+    .fl-table tr td:nth-child(odd) {
+        background: #F8F8F8;
+        border-right: 1px solid #E6E4E4;
+    }
+    .fl-table tr td:nth-child(even) {
+        border-right: 1px solid #E6E4E4;
+    }
+    .fl-table tbody td {
+        display: block;
+        text-align: center;
+    }
+}

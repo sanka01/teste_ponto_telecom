@@ -1,6 +1,8 @@
-<h1>Editing Cliente</h1>
-
+<div class="segment">
+    <h1>Editando Cliente</h1>
+</div>
 <%= render 'form', cliente: @cliente %>
-
-<%= link_to 'Show', @cliente %> |
-<%= link_to 'Back', clientes_path %>
+<div class="segment">
+    <%= link_to 'Exibir', @cliente, class: "skewBtn"%> |
+    <%= link_to 'Voltar', clientes_path, class: "skewBtn"%>
+</div>

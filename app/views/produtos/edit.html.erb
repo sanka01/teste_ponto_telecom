@@ -1,6 +1,11 @@
-<h1>Editing Produto</h1>
+<div class="segment">
+    <h1>Editando Produto</h1>
+</div>
 
 <%= render 'form', produto: @produto %>
 
-<%= link_to 'Show', @produto %> |
-<%= link_to 'Back', produtos_path %>
+<div class="segment">
+
+    <%= link_to 'Exibir', @produto, class: "skewBtn"%> |
+    <%= link_to 'Voltar', produtos_path, class: "skewBtn"%>
+</div>

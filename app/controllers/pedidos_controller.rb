@@ -14,8 +14,7 @@ class PedidosController < ApplicationController
 
   # GET /pedidos/new
   def new
-    
-   
+
     @pedido = Pedido.new
   end
 

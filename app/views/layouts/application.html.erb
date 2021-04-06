@@ -10,6 +10,16 @@
   </head>
 
   <body>
-    <%= yield %>
+    <nav>
+    <ul class="menuItems">
+      <li><%=link_to "Página inicial",  root_path %> </li>
+      <li><%=link_to "Clientes", clientes_path  %> </li>
+      <li><%=link_to "Produtos", produtos_path  %> </li>
+      <li><%=link_to "Pedidos", pedidos_path    %> </li>
+    </ul>
+    </nav>
+    <div class="content">
+      <%= yield %>
+    </div>
   </body>
 </html>
