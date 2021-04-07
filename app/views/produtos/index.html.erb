@@ -16,7 +16,7 @@
     </thead>
 
     <tbody>
-      <% @produtos.each do |produto| %>
+      <% @produtos.sort_by { |a| a.ativo ? 0 : 1 }.each do |produto| %>
         <tr>
           <td><%= produto.nome %></td>
           <td><%= produto.valor %></td>

@@ -29,7 +29,7 @@
 
   <div class="field">
     <%= form.label :data_nascimento %>
-    <%= form.date_select :data_nascimento %>
+    <%= form.date_select :data_nascimento, :start_year => 1950, :end_year => 2021, class: "date-select", prompt: {day: "Dia", month: "Mês", year: "Ano"} %>
   </div>
  
   <%= form.hidden_field :ativo, value: "true" %>

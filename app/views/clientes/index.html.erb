@@ -16,7 +16,7 @@
     </thead>
 
     <tbody>
-      <% @clientes.each do |cliente| %>
+      <% @clientes.sort_by { |a| a.ativo ? 0 : 1 }.each do |cliente| %>
         <tr>
           <td><%= cliente.nome %></td>
           <td><%= cliente.telefone %></td>

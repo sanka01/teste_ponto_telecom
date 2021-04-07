@@ -5,3 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+for i in (0..20) do
+    Cliente.create(nome: Faker::Name.name, telefone: Faker::PhoneNumber.phone_number,  data_nascimento: Faker::Date.birthday(18, 65), ativo: (rand > 0.2)) 
+end
+
+for i in (0..50) do 
+    Produto.create(nome:Faker::Food.dish,valor:Faker::Number.decimal(2,2), ativo: (rand > 0.2))
+end
