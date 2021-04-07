@@ -30,7 +30,34 @@ $rosinha: #e3d0e6;
 }
 .content{
     margin: 25px;
+    text-align: center;
+    text-align: -webkit-center;
 }
+
+
+/*select style*/
+
+
+
+/* cards style */
+
+
+.card{
+  width: 30%;
+  border-radius: 4px;
+  background: darken($color-bg, 8%);
+  box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
+  transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
+  padding: 14px 80px 18px 36px;
+  &:hover{
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+  }
+  h1{
+    font-weight: 600;
+  }
+}
+
 
 
 /* input style */
@@ -46,7 +73,7 @@ $rosinha: #e3d0e6;
     padding: $ruler*2 0;
     text-align: center;
   }
-  button, input {
+  button, input, select {
     border: 0;
     outline: 0;
     font-size: $ruler;
@@ -64,7 +91,7 @@ $rosinha: #e3d0e6;
   
 input {
     margin-right: $ruler/2;
-    box-shadow:  inset 2px 2px 5px $color-shadow, inset -5px -5px 10px $color-white;
+    box-shadow:  inset 2px 2px 2px $color-shadow, inset -5px -5px 2px $color-white;
     width: 100%;
     box-sizing: border-box;
     transition: all 0.2s ease-in-out;
@@ -75,12 +102,27 @@ input {
       box-shadow:  inset 1px 1px 2px $color-shadow, inset -1px -1px 2px $color-white;
     }
   }
+  select{
+    color:#000000;
+    background-color:#b1f3e6;
+    box-shadow: -5px -5px 5px $color-white,  5px 5px 5px $color-shadow;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+    font-weight: 600;
+    &:hover {
+      box-shadow: -2px -2px 5px $color-white, 2px 2px 5px $color-shadow;
+    }
+    
+    &:active {
+      box-shadow: inset 1px 1px 2px $color-shadow, inset -1px -1px 2px $color-white;
+    }
+  }
 
   input[type="submit"] {
     color:#170a86;
     font-weight: bold;
     background-color:#dff0f7;
-    box-shadow: -5px -5px 20px $color-white,  5px 5px 20px $color-shadow;
+    box-shadow: -5px -5px 10px $color-white,  5px 5px 10px $color-shadow;
     transition: all 0.2s ease-in-out;
     cursor: pointer;
     font-weight: 600;
@@ -132,9 +174,11 @@ nav {
     margin: 0;
     background: darken($color-bg, 5%);
     padding: 1px;
+    text-align: center;
     .menuItems {
       list-style: none;
       display: flex;
+      justify-content: center;
   
       li {
         margin: 25px;
@@ -183,7 +227,8 @@ nav {
 
 .table-wrapper{
     margin: 10px 70px 70px;
-    box-shadow: 0px 35px 50px rgba(248, 165, 57, 0.2);
+    text-align: center;
+    text-align: -webkit-center;
 }
 
 .fl-table {
@@ -192,6 +237,7 @@ nav {
     font-weight: normal;
     border: none;
     border-collapse: collapse;
+    box-shadow: 0px 35px 35px rgba(26, 116, 151, 0.13);
     width: 40%;
     max-width: 100%;
     white-space: nowrap;
@@ -224,6 +270,55 @@ nav {
     .fl-table {
         display: block;
         width: 100%;
+        thead,  tbody, thead th {
+          display: block;
+        }
+        thead th:last-child{
+          border-bottom: none;
+        }
+       thead {
+          float: left;
+        }
+        tbody {
+          width: auto;
+          position: relative;
+          overflow-x: auto;
+        }
+        td, th {
+          padding: 20px .625em .625em .625em;
+          height: 60px;
+          vertical-align: middle;
+          box-sizing: border-box;
+          overflow-x: hidden;
+          overflow-y: auto;
+          width: 120px;
+          font-size: 13px;
+          text-overflow: ellipsis;
+        }
+        thead th {
+          text-align: left;
+          border-bottom: 1px solid #f7f7f9;
+        }
+        tbody tr {
+          display: table-cell;
+        }
+        tbody tr:nth-child(odd) {
+          background: none;
+        }
+        tr:nth-child(even) {
+          background: transparent;
+        }
+        tr td:nth-child(odd) {
+          background: #F8F8F8;
+          border-right: 1px solid #E6E4E4;
+        }
+        tr td:nth-child(even) {
+          border-right: 1px solid #E6E4E4;
+        }
+        tbody td {
+          display: block;
+          text-align: center;
+        }
     }
     .table-wrapper:before{
         content: "Scroll horizontally >";
@@ -233,53 +328,5 @@ nav {
         color: white;
         padding: 0 0 10px;
     }
-    .fl-table thead, .fl-table tbody, .fl-table thead th {
-        display: block;
-    }
-    .fl-table thead th:last-child{
-        border-bottom: none;
-    }
-    .fl-table thead {
-        float: left;
-    }
-    .fl-table tbody {
-        width: auto;
-        position: relative;
-        overflow-x: auto;
-    }
-    .fl-table td, .fl-table th {
-        padding: 20px .625em .625em .625em;
-        height: 60px;
-        vertical-align: middle;
-        box-sizing: border-box;
-        overflow-x: hidden;
-        overflow-y: auto;
-        width: 120px;
-        font-size: 13px;
-        text-overflow: ellipsis;
-    }
-    .fl-table thead th {
-        text-align: left;
-        border-bottom: 1px solid #f7f7f9;
-    }
-    .fl-table tbody tr {
-        display: table-cell;
-    }
-    .fl-table tbody tr:nth-child(odd) {
-        background: none;
-    }
-    .fl-table tr:nth-child(even) {
-        background: transparent;
-    }
-    .fl-table tr td:nth-child(odd) {
-        background: #F8F8F8;
-        border-right: 1px solid #E6E4E4;
-    }
-    .fl-table tr td:nth-child(even) {
-        border-right: 1px solid #E6E4E4;
-    }
-    .fl-table tbody td {
-        display: block;
-        text-align: center;
-    }
+   
 }

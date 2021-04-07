@@ -1,7 +1,9 @@
-<p id="notice"><%= notice %></p>
+<div class="segment">
+  <p id="notice"><%= notice %></p>
 
-<h1>Clientes</h1>
-<div class="tabble-wrapper">
+  <h1>Clientes</h1>
+</div>
+<div class="table-wrapper">
   <table class="fl-table">
     <thead>
       <tr>
@@ -30,4 +32,6 @@
 </div>
 <br>
 
-<%= link_to 'Novo Cliente', new_cliente_path, class: "skewBtn" %>
+<div class="segment">
+  <%= link_to 'Novo Cliente', new_cliente_path, class: "skewBtn" %>
+</div>
